@@ -9,29 +9,11 @@ import { Quotation } from './models/quotation';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  showForm = false;
-  quotes: Quotation[] = QUOTES;
-  quotation: Quotation = {
-    author: '',
-    sentence: '',
-    votes: 0
-  };
 
-  addQutation(): void {
-    this.quotes.unshift(this.quotation);
-    this.quotation = {
-      author: '',
-      sentence: '',
-      votes: 0
-    };
-  }
+  quotes: Quotation[] = QUOTES;
 
   addVote(quotation: Quotation, value: number): void {
     quotation.votes += value;
-  }
-
-  onSwitchForm(): void {
-    this.showForm = !this.showForm;
   }
 
   bestQuotes(): Quotation[] {
@@ -40,5 +22,9 @@ export class AppComponent {
 
   worstQuotes(): Quotation[] {
     return this.quotes.filter(q => q.votes < 0);
+  }
+
+  onNewQuotation(quotation: Quotation): void {
+    this.quotes.unshift(quotation);
   }
 }
