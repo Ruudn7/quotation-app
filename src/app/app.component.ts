@@ -33,4 +33,12 @@ export class AppComponent {
   onSwitchForm(): void {
     this.showForm = !this.showForm;
   }
+
+  bestQuotes(): Quotation[] {
+    return this.quotes.filter(q => q.votes > 0);
+  }
+
+  worstQuotes(): Quotation[] {
+    return this.quotes.filter(q => q.votes < 0);
+  }
 }
