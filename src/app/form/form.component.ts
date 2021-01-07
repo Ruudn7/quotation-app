@@ -11,7 +11,7 @@ import { Quotation } from './../models/quotation';
 
 export class FormComponent {
 
-  @Input() showForm = true;
+  showForm = false;
   @Output() newQuotation = new EventEmitter<Quotation>();
   quotation: Quotation = {
     author: '',
